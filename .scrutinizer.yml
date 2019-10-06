@@ -2,6 +2,8 @@ build:
   environment:
     php:
       version: 7.2
+      pecl_extensions:
+      - xdebug
   nodes:
     coverage:
       tests:
