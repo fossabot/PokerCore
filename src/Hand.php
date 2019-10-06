@@ -48,6 +48,8 @@ class Hand
     /**
      * @param string $stringHand
      *
+     * @throws \InvalidArgumentException
+     *
      * @return self
      */
     public static function fromString(string $stringHand): self
