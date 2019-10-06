@@ -8,7 +8,6 @@ use PokerCore\Hand;
 
 class HandTest extends TestCase
 {
-
     /**
      * @return array
      */
@@ -41,7 +40,7 @@ class HandTest extends TestCase
             ['Ac', 'Ad'],
             ['Ac', 'Kc'],
             ['2s', '3s'],
-            ['Qh', 'Qd']
+            ['Qh', 'Qd'],
         ];
     }
 
@@ -70,7 +69,7 @@ class HandTest extends TestCase
             ['AcAd'],
             ['AcKc'],
             ['2s3s'],
-            ['QhQd']
+            ['QhQd'],
         ];
     }
 
@@ -102,7 +101,6 @@ class HandTest extends TestCase
         $this->assertEquals($cards, $item->__toString());
     }
 
-
     /**
      * @return array
      */
@@ -117,8 +115,8 @@ class HandTest extends TestCase
 
     /**
      * @param string $cards
-     * @param int $bitCard1
-     * @param int $bitCard2
+     * @param int    $bitCard1
+     * @param int    $bitCard2
      *
      * @dataProvider providerGetBitCards
      */
