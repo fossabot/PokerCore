@@ -6,7 +6,7 @@ build:
     coverage:
       tests:
         override:
-        - command: phpunit --coverage-text --coverage-clover=coverage.clover
+        - command: vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
           coverage:
             file: coverage.clover   # <- Set this to where we find the coverage data.
             #    The path is relative to the current directory.
