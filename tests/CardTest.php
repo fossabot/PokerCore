@@ -48,7 +48,7 @@ class CardTest extends TestCase
                 $data[] = [
                     "{$rank}{$suit}",
                     (Card::STR_TO_BIT_MAP[$rank] | Card::STR_TO_BIT_SUIT_MAP[$suit]
-                        | Card::STR_TO_BIT_RANK_MAP[$rank] | Card::STR_TO_BIT_PRIME_MAP[$rank]) >> 12 & 0xF
+                        | Card::STR_TO_BIT_RANK_MAP[$rank] | Card::STR_TO_BIT_PRIME_MAP[$rank]) >> 12 & 0xF,
                 ];
             }
         }
@@ -58,7 +58,7 @@ class CardTest extends TestCase
 
     /**
      * @param string $card
-     * @param int $bitSuit
+     * @param int    $bitSuit
      *
      * @dataProvider providerGetBitSuit
      */
@@ -68,7 +68,6 @@ class CardTest extends TestCase
 
         $this->assertEquals($bitSuit, $item->getBitSuit());
     }
-
 
     /**
      * @return array
@@ -82,7 +81,7 @@ class CardTest extends TestCase
                 $data[] = [
                     "{$rank}{$suit}",
                     (Card::STR_TO_BIT_MAP[$rank] | Card::STR_TO_BIT_SUIT_MAP[$suit]
-                        | Card::STR_TO_BIT_RANK_MAP[$rank] | Card::STR_TO_BIT_PRIME_MAP[$rank]) >> 8 & 0xF
+                        | Card::STR_TO_BIT_RANK_MAP[$rank] | Card::STR_TO_BIT_PRIME_MAP[$rank]) >> 8 & 0xF,
                 ];
             }
         }
@@ -92,7 +91,7 @@ class CardTest extends TestCase
 
     /**
      * @param string $card
-     * @param int $bitRank
+     * @param int    $bitRank
      *
      * @dataProvider providerGetBitRankInt
      */
@@ -116,7 +115,7 @@ class CardTest extends TestCase
                     Card::STR_TO_BIT_MAP[$rank] | Card::STR_TO_BIT_SUIT_MAP[$suit]
                     | Card::STR_TO_BIT_RANK_MAP[$rank] | Card::STR_TO_BIT_PRIME_MAP[$rank],
                     (Card::STR_TO_BIT_MAP[$rank] | Card::STR_TO_BIT_SUIT_MAP[$suit]
-                        | Card::STR_TO_BIT_RANK_MAP[$rank] | Card::STR_TO_BIT_PRIME_MAP[$rank]) >> 12 & 0xF
+                        | Card::STR_TO_BIT_RANK_MAP[$rank] | Card::STR_TO_BIT_PRIME_MAP[$rank]) >> 12 & 0xF,
                 ];
             }
         }
@@ -137,7 +136,7 @@ class CardTest extends TestCase
 
     /**
      * @param string $card
-     * @param int $bitRank
+     * @param int    $bitRank
      *
      * @dataProvider providerGetBitRank
      */
@@ -158,7 +157,7 @@ class CardTest extends TestCase
                 $data[] = [
                     "{$rank}{$suit}",
                     (Card::STR_TO_BIT_MAP[$rank] | Card::STR_TO_BIT_SUIT_MAP[$suit]
-                        | Card::STR_TO_BIT_RANK_MAP[$rank] | Card::STR_TO_BIT_PRIME_MAP[$rank]) >> 16
+                        | Card::STR_TO_BIT_RANK_MAP[$rank] | Card::STR_TO_BIT_PRIME_MAP[$rank]) >> 16,
                 ];
             }
         }
@@ -168,7 +167,7 @@ class CardTest extends TestCase
 
     /**
      * @param string $card
-     * @param int $bitRank
+     * @param int    $bitRank
      *
      * @dataProvider providerGetBitRank
      */
@@ -191,7 +190,7 @@ class CardTest extends TestCase
                 $data[] = [
                     "{$rank}{$suit}",
                     Card::STR_TO_BIT_MAP[$rank] | Card::STR_TO_BIT_SUIT_MAP[$suit]
-                    | Card::STR_TO_BIT_RANK_MAP[$rank] | Card::STR_TO_BIT_PRIME_MAP[$rank]
+                    | Card::STR_TO_BIT_RANK_MAP[$rank] | Card::STR_TO_BIT_PRIME_MAP[$rank],
                 ];
             }
         }
@@ -201,7 +200,7 @@ class CardTest extends TestCase
 
     /**
      * @param string $card
-     * @param int $bitCard
+     * @param int    $bitCard
      *
      * @dataProvider providerGetBitCard
      */
@@ -211,7 +210,6 @@ class CardTest extends TestCase
 
         $this->assertEquals($bitCard, $item->getBitCard());
     }
-
 
     /**
      * @return array
@@ -226,7 +224,7 @@ class CardTest extends TestCase
                     Card::STR_TO_BIT_MAP[$rank] | Card::STR_TO_BIT_SUIT_MAP[$suit]
                     | Card::STR_TO_BIT_RANK_MAP[$rank] | Card::STR_TO_BIT_PRIME_MAP[$rank],
                     (Card::STR_TO_BIT_MAP[$rank] | Card::STR_TO_BIT_SUIT_MAP[$suit]
-                        | Card::STR_TO_BIT_RANK_MAP[$rank] | Card::STR_TO_BIT_PRIME_MAP[$rank]) >> 16
+                        | Card::STR_TO_BIT_RANK_MAP[$rank] | Card::STR_TO_BIT_PRIME_MAP[$rank]) >> 16,
                 ];
             }
         }
@@ -247,7 +245,7 @@ class CardTest extends TestCase
 
     /**
      * @param string $card
-     * @param int $bitPrime
+     * @param int    $bitPrime
      *
      * @dataProvider providerGetBitPrime
      */
@@ -284,7 +282,7 @@ class CardTest extends TestCase
         $item = Card::fromString($card);
 
         $this->assertEquals($card, $item->__toString());
-        $this->assertEquals($card, $item->getRank() . $item->getSuit());
+        $this->assertEquals($card, $item->getRank().$item->getSuit());
     }
 
     /**
@@ -314,7 +312,6 @@ class CardTest extends TestCase
         $item = Card::fromString($card);
 
         $this->assertEquals($expectedRank, $item->getRank());
-
     }
 
     /**
@@ -328,7 +325,7 @@ class CardTest extends TestCase
             foreach (['s', 'h', 'd', 'c'] as $suit) {
                 $data[] = [
                     Card::STR_TO_BIT_MAP[$rank] | Card::STR_TO_BIT_SUIT_MAP[$suit]
-                    | Card::STR_TO_BIT_RANK_MAP[$rank] | Card::STR_TO_BIT_PRIME_MAP[$rank]
+                    | Card::STR_TO_BIT_RANK_MAP[$rank] | Card::STR_TO_BIT_PRIME_MAP[$rank],
                 ];
             }
         }
@@ -358,7 +355,7 @@ class CardTest extends TestCase
             [2],
             [3],
             [-1],
-            [0]
+            [0],
         ];
     }
 
@@ -383,7 +380,7 @@ class CardTest extends TestCase
         $item = Card::fromString($card);
 
         $this->assertEquals($card, $item->__toString());
-        $this->assertEquals($card, $item->getRank() . $item->getSuit());
+        $this->assertEquals($card, $item->getRank().$item->getSuit());
     }
 
     /**
@@ -406,7 +403,7 @@ class CardTest extends TestCase
                      7 => '5',
                      5 => '4',
                      3 => '3',
-                     2 => '2'
+                     2 => '2',
                  ] as $bitPrime => $rank) {
             foreach (['s', 'h', 'd', 'c'] as $suit) {
                 $data[] = ["{$rank}{$suit}", $bitPrime];
@@ -418,7 +415,7 @@ class CardTest extends TestCase
 
     /**
      * @param string $card
-     * @param int $bitPrime
+     * @param int    $bitPrime
      *
      * @dataProvider providerGetBitPrime
      */
