@@ -25,7 +25,7 @@ namespace PokerCore;
  * - Detect straights
  * and is also quite performant.
  *
- * @package HandHistory
+ * @package PokerCore
  */
 class Card
 {
@@ -365,7 +365,7 @@ class Card
     /**
      * @return string
      */
-    public function __toString()
+    public function __toString(): string
     {
         return $this->getRank() . $this->getSuit();
     }
