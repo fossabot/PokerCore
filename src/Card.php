@@ -3,7 +3,7 @@
 namespace PokerCore;
 
 /**
- * Class Card
+ * Class Card.
  *
  * We represent cards as 32-bit integers, so there is no object instantiation - they are just ints.
  * Most of the bits are used, and have a specific meaning. See below:
@@ -24,8 +24,6 @@ namespace PokerCore;
  * - Detect flushes
  * - Detect straights
  * and is also quite performance.
- *
- * @package PokerCore
  */
 class Card
 {
@@ -96,10 +94,10 @@ class Card
     const STR_2 = '2';
 
     const STR_TO_BIT_SUIT_MAP = [
-        self::STR_SPADES => self::SPADES,
-        self::STR_HEARTS => self::HEARTS,
+        self::STR_SPADES   => self::SPADES,
+        self::STR_HEARTS   => self::HEARTS,
         self::STR_DIAMONDS => self::DIAMONDS,
-        self::STR_CLUBS => self::CLUBS
+        self::STR_CLUBS    => self::CLUBS,
     ];
 
     const BIT_CARDS = [
@@ -154,17 +152,15 @@ class Card
         557831,
         295429,
         164099,
-        98306
+        98306,
     ];
-
 
     const BIT_TO_STR_SUIT_MAP = [
         1 => self::STR_SPADES,
         2 => self::STR_HEARTS,
         4 => self::STR_DIAMONDS,
-        8 => self::STR_CLUBS
+        8 => self::STR_CLUBS,
     ];
-
 
     const STR_TO_BIT_RANK_MAP = [
         self::STR_A => self::_A_rank,
@@ -179,7 +175,7 @@ class Card
         self::STR_5 => self::_5_rank,
         self::STR_4 => self::_4_rank,
         self::STR_3 => self::_3_rank,
-        self::STR_2 => self::_2_rank
+        self::STR_2 => self::_2_rank,
     ];
 
     const STR_TO_BIT_PRIME_MAP = [
@@ -195,7 +191,7 @@ class Card
         self::STR_5 => self::_5_prime,
         self::STR_4 => self::_4_prime,
         self::STR_3 => self::_3_prime,
-        self::STR_2 => self::_2_prime
+        self::STR_2 => self::_2_prime,
     ];
 
     const STR_TO_BIT_MAP = [
@@ -227,7 +223,7 @@ class Card
         self::STR_J,
         self::STR_Q,
         self::STR_K,
-        self::STR_A
+        self::STR_A,
     ];
 
     /**
@@ -242,6 +238,7 @@ class Card
 
     /**
      * Card constructor.
+     *
      * @param int $bitCard
      *
      * @throws \InvalidArgumentException
@@ -259,9 +256,9 @@ class Card
     /**
      * @param string $card
      *
-     * @return Card
-     *
      * @throws \InvalidArgumentException
+     *
+     * @return Card
      */
     public static function fromString(string $card): self
     {
@@ -273,6 +270,7 @@ class Card
     public static function getBitRankFromString(string $card): int
     {
         $tempData = str_split($card, 1);
+
         return (static::STR_TO_BIT_MAP[$tempData[0]] | static::STR_TO_BIT_SUIT_MAP[$tempData[1]] | static::STR_TO_BIT_RANK_MAP[$tempData[0]] | static::STR_TO_BIT_PRIME_MAP[$tempData[0]]) >> 16;
     }
 
@@ -367,6 +365,6 @@ class Card
      */
     public function __toString(): string
     {
-        return $this->getRank() . $this->getSuit();
+        return $this->getRank().$this->getSuit();
     }
 }

@@ -3,8 +3,7 @@
 namespace PokerCore;
 
 /**
- * Class Hand
- * @package PokerCore
+ * Class Hand.
  */
 class Hand
 {
@@ -63,6 +62,6 @@ class Hand
      */
     public function __toString(): string
     {
-        return ((string)$this->card1) . ((string)$this->card2);
+        return ((string) $this->card1).((string) $this->card2);
     }
 }
